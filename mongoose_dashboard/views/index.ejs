@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <h1>Welcome!</h1>
+  <h4>Follow the link to create your hero!</h4>
+  <a href="/new">Create a Hero!</a>
+  <!-- Display all heros-->
+  <% for (idx in hero) { %>
+    <p>Name:<a href="/<%= hero[idx]._id%>"><%= hero[idx].name%></a>
+      <a href="/<%= hero[idx]._id %>/edit/">Edit hero</a>
+      <form class="" action="/<%= hero[idx]._id%>/delete/" method='post'>
+        <input type="submit" name="" value="Kill Off">
+      </form>
+    </p>
+  <% } %>
+</body>
+</html>
