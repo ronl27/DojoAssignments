@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang = 'en' ng-app = 'app'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src = 'bower_components/angular/angular.js'></script>
+
+    <script type="text/javascript">
+      var app = angular.module('app', []);
+      app.controller('herosController', ['$scope', function($scope){
+        // factories is not needed
+        $scope.heros = [
+          {name: 'Fin', age: 24, gender:'Male', class: 'Traitor'},
+          {name: 'Tifa', age: 20, gender:'Female', class: 'Fighter'},
+          {name: 'Cloud', age: 20, gender: 'Male', class: 'Soldier'},
+          {name: 'Rick', age: 'Unknown', gender: 'Male', class: 'Crazy Scientist'},
+        ]
+      }])
+    </script>
+
+  </head>
+  <body ng-app = 'app'>
+    <div ng-controller = 'herosController'>
+      <!-- Create your filter_model -->
+      Search Heros: <input placeholder = "Heros..." type="text" ng-model = "heroFilter">
+      <ul>
+          <!-- show your filter -->
+        <li ng-repeat = "hero in heros | orderBy:'name' | filter:heroFilter track by $index">
+          {{hero.name}} - Age: {{hero.age | number:0 }}, Gender: {{hero.gender}}, Class: {{hero.class}}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
