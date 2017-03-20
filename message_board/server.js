@@ -84,7 +84,7 @@ app.post("/comment/:id", function(req, res){
         console.log(err);
         res.render('index.ejs', {errors: newComment.errors});
       } else {
-        consolße.log("comment added")
+        console.log("comment added")
         res.redirect('/');
       }
     });
