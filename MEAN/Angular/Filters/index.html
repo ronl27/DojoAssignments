@@ -25,7 +25,7 @@
       Search Heros: <input placeholder = "Heros..." type="text" ng-model = "heroFilter">
       <ul>
           <!-- show your filter -->
-        <li ng-repeat = "hero in heros | orderBy:'name' | filter:heroFilter track by $index">
+        <li ng-repeat = "hero in heros | orderBy:'name' | filter:heroFilter">
           {{hero.name}} - Age: {{hero.age | number:0 }}, Gender: {{hero.gender}}, Class: {{hero.class}}
         </li>
       </ul>
