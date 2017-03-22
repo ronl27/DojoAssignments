@@ -1,0 +1,21 @@
+{
+  "name": "SimpleServer",
+  "homepage": "https://github.com/ronl27/DojoAssignments",
+  "authors": [
+    "Ronnel Bautista <ronnel.j.bautista@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.6.3",
+    "angular": "^1.6.3"
+  }
+}
