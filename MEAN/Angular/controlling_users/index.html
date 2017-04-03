@@ -62,6 +62,7 @@ Make your table searchable Add a date column Make your table sortable -->
 var userModule = angular.module('myApp', []);
 // Create controller with $scope injected
 userModule.controller('usersController', ['$scope', function($scope){
+  // How do you clear the field after input?
   $scope.users = [
     {
       firstName: 'Ronnel',
@@ -74,12 +75,11 @@ userModule.controller('usersController', ['$scope', function($scope){
       favoriteLanguage: 'N/A'
     }
   ];
-  // How do you clear the field after input?
   $scope.createUser = function(){
     $scope.users.push($scope.newUser);
-    console.log(users);
+    console.log('Created User');
     $scope.newUser = {};
-    
+
   }
 
   $scope.deleteUser = function(userToDelete){

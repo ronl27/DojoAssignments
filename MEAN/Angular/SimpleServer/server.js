@@ -4,7 +4,7 @@ var path = require('path');
 var app = express();
 var port = 8000;
 
-//set an enviornment var called APPROOT to keep track of the root folder of your app.
+//set an enviornment var called APPROOT to keep track of the root folder of the app.
 process.env['APPROOT'] = __dirname;
 
 //require mongoose configuraton, use path.join to build the routes
