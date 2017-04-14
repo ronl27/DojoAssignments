@@ -1,0 +1,42 @@
+<h1> Edit: <%= "#{@student.first_name} #{@student.last_name}"%></h1>
+
+<% if flash[:errors] %>
+<% flash[:errors].each do |e| %>
+<p><%= e %></p>
+<% end %>
+<% end %>
+<hr>
+
+<div class="container">
+  <h3> What needs to be changed?</h3>
+
+  <div class="col-md-12">
+    <form class="" action="/dojos/<%= @student.dojo_id%>/students/<%= @student.id%>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+      <label>First Name</label>
+      <input type="text" name="student[first_name]" value="<%= @student.first_name%>">
+
+      <label>Last Name</label>
+      <input type="text" name="student[last_name]" value="<%= @student.last_name%>">
+
+      <label>Email:</label>
+      <input type="text" name="student[email]" value="<%= @student.email%>">
+
+      <label>Dojo:</label>
+      <select name="student[dojo_id]">
+        <% @dojo.each do |dojo| %>
+          <%if dojo.id == @student.dojo_id%>
+            <option value="<%= dojo.id %>"><%= dojo.branch %></option>
+          <% else %>
+            <option value="<%= dojo.id %>"><%= dojo.branch %></option>
+          <% end %>
+        <% end %>
+      </select>
+      <input type="submit" name="Update">
+    </form>
+
+    <%= link_to "Home", root_path%> | <%= link_to "#{@student.first_name}", dojo_student_path(@student.dojo_id, @student)%>
+  </div>
+</div>

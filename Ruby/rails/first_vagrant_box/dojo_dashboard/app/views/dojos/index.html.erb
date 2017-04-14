@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Listing: <%= @dojos.count %> Dojos</h1>
+  <div class='col-md-12'>
+    <table class = "table table-striped">
+      <thead>
+        <th>Coding Dojo Branch</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+      </thead>
+      <tbody>
+        <!-- use the .each method to display information of each dojo -->
+        <!-- for loop -->
+        <% @dojos.each do |dojo|%>
+        <tr>
+          <td><%= dojo.branch%></td>
+          <td><%= dojo.street%></td>
+          <td><%= dojo.city%></td>
+          <td><%= dojo.state%></td>
+          <td>
+            <!-- does not need to be @dojo.id, as @dojos.each is the for loop -->
+            <%= link_to "Show", dojo %> | <%= link_to "Edit", edit_dojo_path(dojo) %>| <%= link_to "Delete", dojo, data: {method: :delete, confirm: "Are you sure?"}%>
+          </td>
+        </tr>
+        <% end %>
+        <!-- end of for loop -->
+      </tbody>
+    </table>
+
+    <hr>
+    <%= link_to "Have a new Dojo in mind?", new_dojo_path %>
+  </div>
+</div>
